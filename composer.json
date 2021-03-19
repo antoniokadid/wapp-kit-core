@@ -62,9 +62,11 @@
         "test": "./vendor/bin/phpunit --testdox --verbose --configuration ./phpunit.xml",
         "code:sniff": "php vendor/bin/phpcs --standard=phpcs.xml src",
         "code:mess": "php vendor/bin/phpmd src text phpmd.xml",
+        "code:phpcbf": "php vendor/bin/phpcbf --standard=phpcs.xml src",
+        "code:php-cs-fixer": "php vendor/bin/php-cs-fixer fix src --config=.php_cs",
         "code:fix": [
-            "php vendor/bin/phpcbf --standard=phpcs.xml src",
-            "php vendor/bin/php-cs-fixer fix src --config=.php_cs"
+            "@code:phpcbf",
+            "@code:php-cs-fixer"
         ]
     }
 }
